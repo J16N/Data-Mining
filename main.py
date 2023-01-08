@@ -17,4 +17,4 @@ if __name__ == "__main__":
     rules = get_rules(result, 0.75)
 
     for x, y, conf in rules:
-        print(f"{x}\t->\t{y}\t={conf:.3f}")
+        print(f"{x}\t->\t{y}\t=\t{conf:.3f}")
