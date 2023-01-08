@@ -13,8 +13,8 @@ def cartesian_product(items: Iterable[str], n_set: int) \
     ----------
     Parameters
     ----------
-    items: List of items
-    n_set: A positive integer
+    items: List of items.
+    n_set: A positive integer.
 
     -------
     Returns
@@ -35,6 +35,25 @@ def cartesian_product(items: Iterable[str], n_set: int) \
 
 def get_freq(items: Iterable[str], transactions: list[set[str]], 
              frequencies: Counter) -> None:
+    """
+    This function calculates how many times an item group
+    ocuured in all the transactions. An item group has
+    occured in a single transaction when every items in
+    the item group are present in that transaction.
+
+    ----------
+    Parameters
+    ----------
+    items       : List of items.
+    transactions: List of transactions.
+    frequencies : Dict storing frequencies of every item group.
+
+    -------
+    Returns
+    -------
+    This function mutates the `frequencies` that is passed
+    and returns None.
+    """
     for transaction in transactions:
         for item_group in items:
             # if all the item in the item group is in 
@@ -45,6 +64,25 @@ def get_freq(items: Iterable[str], transactions: list[set[str]],
 
 def apriori(items: Iterable[str], transactions: list[set[str]], 
             min_support: float) -> dict:
+    """
+    This function returns all the frequent patterns that
+    has at least the given minimum support using apriori 
+    algorithm.
+
+    ----------
+    Parameters
+    ----------
+    items       : List of items.
+    transactions: List of transactions.
+    min_support : Decimal number between 0 and 1
+                  denoting minimum support.
+
+    -------
+    Returns
+    -------
+    All the item groups having a support equal or greater 
+    than the minimum support.
+    """
     L: dict = {}
     frequencies: Counter = Counter()
 
@@ -75,6 +113,35 @@ def apriori(items: Iterable[str], transactions: list[set[str]],
 
 def get_rules(itemsets: dict, conf_lvl: float) \
         -> list[tuple[str, str, float]]:
+    """
+    This function returns all the association
+    rules present in the given itemset that is
+    above or equal to the minimum confidence
+    level.
+
+    For X and Y be any arbitrary item group in
+    a given itemset, the conditions for finding 
+    association rules are as follows:
+
+    1. X -> Y is possible if XY is also present
+       in the itemset.
+
+    2. X -> Y is possible is X ∩ Y = Φ.
+
+    ----------
+    Parameters
+    ----------
+    itemsets    : Dicts containing item groups 
+                  along with their support.
+    conf_lvl    : Decimal number between 0 and 1
+                  denoting a minimum confidence.
+
+    -------
+    Returns
+    -------
+    List of association rules that are equal or
+    greater than the minimum confidence.
+    """
     rules = []
     item_groups = tuple(itemsets.keys())
     N = len(item_groups)
