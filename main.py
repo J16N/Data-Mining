@@ -1,5 +1,5 @@
 import pandas as pd
-from apriori_algo import apriori
+from apriori_algo import apriori, get_rules
 
 df = pd.read_excel(
     "Binary_dataset.xlsx", 
@@ -14,4 +14,7 @@ transactions = [
 
 if __name__ == "__main__":
     result = apriori(tuple(df), transactions, 0.5)
-    print(*result, sep="\n")
+    rules = get_rules(result, 0.75)
+
+    for x, y, conf in rules:
+        print(f"{x}\t->\t{y}\t={conf:.3f}")
