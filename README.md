@@ -3,7 +3,7 @@
 A project on finding out frequent items in a given data set using **Apriori** algorithm. 
 
 
-# Project Set Up
+## Project Set Up
 
 **Python 3.8 or higher is required.**  
 
@@ -15,7 +15,7 @@ $ python -m pip install -r requirements.txt
 $ python main.py
 ```
 
-# Links
+## Links
  - [Guide on setting up virtual environment ](https://realpython.com/python-virtual-environments-a-primer/)
  - [Apriori Algorithm](https://en.wikipedia.org/wiki/Apriori_algorithm)
  - [Finding confidence of association rules](https://www.kdnuggets.com/2016/04/association-rules-apriori-algorithm-tutorial.html)
