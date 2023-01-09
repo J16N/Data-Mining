@@ -3,7 +3,7 @@
 A project on finding out frequent items in a given data set using **Apriori** algorithm. 
 
 
-## Project Set Up
+## Installation
 
 **Python 3.8 or higher is required.**  
 
